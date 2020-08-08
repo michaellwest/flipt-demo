@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.5</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="google\**" />
+    <EmbeddedResource Remove="google\**" />
+    <None Remove="google\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="annotations.proto" />
+    <None Remove="flipt.proto" />
+    <None Remove="openapiv2.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="4.0.0-rc2" />
+    <PackageReference Include="Grpc" Version="2.31.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.31.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="protoc-gen-swagger\options\annotations.proto" />
+    <Protobuf Include="flipt.proto" />
+    <Protobuf Include="protoc-gen-swagger\options\openapiv2.proto" />
+  </ItemGroup>
+
+</Project>
